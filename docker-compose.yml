@@ -1,0 +1,43 @@
+services:
+  dev:
+    build:
+      context: .
+      target: dev
+    command: ["sleep", "infinity"]
+    ports:
+      - "8281:8080"
+    volumes:
+      - .:/app
+      - go-mod:/go/pkg/mod
+      - go-build:/root/.cache/go-build
+    env_file:
+      - ${HOME}/.project-secrets/eco_compliance_form.env.dev.local
+    stdin_open: true
+    tty: true
+
+  ai:
+    build:
+      context: .
+      target: ai
+    command: ["sleep", "infinity"]
+    volumes:
+      - .:/app
+      - go-mod:/go/pkg/mod
+      - go-build:/root/.cache/go-build
+      - opencode-data:/root/.local/share/opencode
+      - opencode-config:/root/.config/opencode
+      - opencode-cache:/root/.cache/opencode
+    stdin_open: true
+    tty: true
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+volumes:
+  go-mod:
+  go-build:
+  opencode-data:
+  opencode-config:
+  opencode-cache:
