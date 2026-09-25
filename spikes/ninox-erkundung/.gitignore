@@ -1,0 +1,9 @@
+# Berichte und Rohschema bleiben lokal – nie einchecken.
+ausgabe/
+*.json
+# Schlüssel gehören nie ins Repo.
+.env
+.env.*
+*.token
+# Gebaute Programme
+/ninox-erkundung
