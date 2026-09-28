@@ -169,7 +169,7 @@ Für alle drei gilt:
 
 #### c) api_warten
 
-- **Wann soll das Tool verwendet werden?** `Nur wenn der Anrufer „Wartetest“ und eine Zahl (5, 15 oder 25) sagt.`
+- **Wann soll das Tool verwendet werden?** `Nur wenn der Anrufer „Wartetest“ und eine Zahl von 1 bis 30 sagt.`
 - **URL:** `https://kumm-support-agent.osc-fr1.scalingo.io/api/verzoegert/{{sekunden}}`
 - **Funktionsaufruf-Definition:**
 
@@ -183,8 +183,9 @@ Für alle drei gilt:
     "properties": {
       "sekunden": {
         "type": "integer",
-        "enum": [5, 15, 25],
-        "description": "Wartezeit in Sekunden: 5, 15 oder 25"
+        "minimum": 1,
+        "maximum": 30,
+        "description": "Wartezeit in Sekunden, genau die Zahl, die der Anrufer nennt (1 bis 30)"
       }
     },
     "required": ["sekunden"]

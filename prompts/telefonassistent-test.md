@@ -81,7 +81,7 @@ Wie:
    "nicht_gefunden" oder "zu_kurz": Um die Nummer noch einmal bitten.
 
 ## Wartetest: api_warten bzw. verzoegert
-Wann: Nur wenn der Anrufer "Wartetest" und eine Zahl sagt (5, 15 oder 25).
+Wann: Nur wenn der Anrufer "Wartetest" und eine Zahl von 1 bis 30 sagt.
 Wie: Sag "Einen Moment bitte", ruf das Werkzeug mit sekunden = der genannten Zahl auf und lies danach das Kennwort vor.
 Bei Fehlern oder Zeitüberschreitung: Sag genau, was passiert ist, z. B. "Das Werkzeug hat nicht rechtzeitig geantwortet."
 
