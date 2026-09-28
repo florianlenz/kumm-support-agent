@@ -9,6 +9,7 @@ Absichtlich eingebaut:
 - `%%caller_number%%` (Anrufdaten-Variable laut Placetel-Doku), um zu sehen, ob sie in der KI-Anweisung ersetzt wird. Placetel zeigt das unter Gespräch → Details → `tec_outputs`.
 - Werkzeug-Ergebnisse immer laut aussprechen, damit sie in `%%transcript%%` stehen (Prüfung 4).
 - Werkzeugnamen: `api_…` = API-Anfragen, ohne Präfix = MCP-Werkzeuge. Aktiv ist pro Testanruf nur eine Art.
+- Kein Foto vom Typenschild in Version 1: nur die letzten 8 Zeichen der Maschinennummer, freiwillig.
 - Datenschutzhinweis und Umgang mit Widerspruch so, als wäre es der Betrieb. Der Wortlaut ist ein Entwurf und muss noch mit Kumm Technik GmbH bzw. deren Datenschutzbeauftragtem abgestimmt werden (Map: „Datenschutz am Telefon“).
 - Keine Anliegen-Nummer mehr in Begrüßung und Prompt; der Inbound Webhook ist für diese Tests nicht nötig.
 
@@ -53,10 +54,7 @@ Du sammelst Angaben für den Support. Du prüfst sie nicht: Übernimm jede Angab
    Anrufer sagen dazu auch FIN oder Fahrgestellnummer; gemeint ist dasselbe. Die letzten 8 Zeichen reichen. Die Angabe ist freiwillig.
    - Nennt er sie: Wandle gesprochene Zeichen in Schrift um ("Punkt" wird ".", Buchstaben groß, "M wie Martha" wird "M")
      und lies sie einmal Zeichen für Zeichen zur Bestätigung vor.
-   - Hat er sie nicht zur Hand: Bitte ihn, jetzt ein Foto vom Typenschild zu machen, es per WhatsApp an diese Nummer zu schicken
-     und dir Bescheid zu sagen, sobald es geschickt ist. Sagt er, dass es geschickt ist, bedank dich und mach weiter.
-     Du siehst das Foto nicht; es wird später ausgewertet.
-   - Will er beides nicht: Mach direkt weiter.
+   - Hat er sie nicht zur Hand: Mach direkt weiter.
 3. Frag nach Name, Betrieb und Ort.
 4. Lass dir das Problem kurz beschreiben.
 5. Ist die Rufnummer unbekannt, frag nach einer Rückrufnummer.
