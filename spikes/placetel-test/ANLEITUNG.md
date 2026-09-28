@@ -93,13 +93,18 @@ Einen **eigenen Test-Telefonassistenten** nehmen (nicht den späteren echten).
 
 Inhalt aus [`prompts/telefonassistent-test.md`](../../prompts/telefonassistent-test.md) (Abschnitt „Hauptanweisung“) ins Feld **Hauptanweisung** einfügen, Abschnitt „Begrüßungszeile“ ins Feld **Begrüßungszeile**.
 
-### 2.2 API-Anfragen (Voice Wizard → Tab **API-Anfragen**)
+### 2.2 API-Anfragen (Tools → **Tool erstellen** → **API-Anfrage**)
+
+Vorher unter **Vordefinierte Tools**: „Anrufer-Informationen abrufen“ **an** (liefert die Rufnummer, Parameter `rufnummer`), „Anruf beenden“ **an**, „Absichtserkennung“ **aus**.
+
+Das Formular hat **kein** Feld für feste Parameter, „Vorher sagen“ oder einen eigenen Namen (Name = `name` aus der Funktionsdefinition). Prüfung 3 (`%%caller_number%%` in festen Parametern) entfällt damit; stattdessen zeigt das Protokoll, ob `rufnummer` von der KI befüllt wird.
 
 Für alle drei gilt:
 
-- **HTTP-Methode:** `POST`
+- **Bedingung überschreiben:** kein Haken · **OAuth-Anbieter:** leer
+- **HTTP-Methode:** `POST` (voreingestellt ist `GET`)
 - **API Key:** der Wert von `$TOKEN`
-- **Headers:**
+- **Headers** (Vorlage „Bearer Authorization“):
 
 ```json
 {
@@ -108,13 +113,14 @@ Für alle drei gilt:
 }
 ```
 
-Die Funktionsnamen haben das Präfix `api_`, damit sie nicht mit den gleichnamigen MCP-Werkzeugen kollidieren.
+- Parameter, die nicht in der URL vorkommen, schickt Placetel im Request Body.
+- Nach dem Ausfüllen **Testen**, dann **Erstellen**; danach unter **Benutzerdefinierte Tools** einschalten.
 
-#### a) Test foto_status
+#### a) api_foto_status
 
-- **Name der API-Anfrage:** `Test foto_status`
+- **Wann soll das Tool verwendet werden?** `Wenn der Anrufer sagt, dass er ein Foto vom Typenschild per WhatsApp schickt oder geschickt hat. Wiederholt aufrufen (etwa alle 5 Sekunden), solange status=noch_nicht_da ist, höchstens etwa 2 Minuten lang.`
 - **URL:** `https://kumm-support-agent.osc-fr1.scalingo.io/api/foto-status`
-- **Funktionsdefinition:**
+- **Funktionsaufruf-Definition:**
 
 ```json
 {
@@ -127,33 +133,17 @@ Die Funktionsnamen haben das Präfix `api_`, damit sie nicht mit den gleichnamig
       "rufnummer": {
         "type": "string",
         "description": "Rufnummer des Anrufers, falls bekannt"
-      },
-      "anliegen_id": {
-        "type": "string",
-        "description": "Die vierstellige Anliegen-Nummer aus der Begrüßung, falls bekannt"
       }
     }
   }
 }
 ```
 
-- **Feste Parameter** (Prüfung 3: wird `%%caller_number%%` ersetzt?):
+#### b) api_maschine_suchen
 
-```json
-{
-  "anrufer": "%%caller_number%%",
-  "anrufer_klammer": "{{caller_number}}"
-}
-```
-
-- **Vorher sagen:** leer lassen (sonst sagt er bei jeder Abfrage denselben Satz).
-- **Bedingung / Wann verwenden:** `Wenn der Anrufer ein Foto vom Typenschild per WhatsApp schickt oder geschickt hat. Wiederholt aufrufen, solange status=noch_nicht_da ist.`
-
-#### b) Test maschine_suchen
-
-- **Name der API-Anfrage:** `Test maschine_suchen`
+- **Wann soll das Tool verwendet werden?** `Wenn der Anrufer Zeichen der Maschinennummer vom Typenschild nennt.`
 - **URL:** `https://kumm-support-agent.osc-fr1.scalingo.io/api/maschine-suchen`
-- **Funktionsdefinition:**
+- **Funktionsaufruf-Definition:**
 
 ```json
 {
@@ -167,9 +157,9 @@ Die Funktionsnamen haben das Präfix `api_`, damit sie nicht mit den gleichnamig
         "type": "string",
         "description": "Die letzten 8 Zeichen der Maschinennummer, z. B. TKKC9901"
       },
-      "anliegen_id": {
+      "rufnummer": {
         "type": "string",
-        "description": "Die vierstellige Anliegen-Nummer aus der Begrüßung, falls bekannt"
+        "description": "Rufnummer des Anrufers, falls bekannt"
       }
     },
     "required": ["maschinennummer"]
@@ -177,15 +167,11 @@ Die Funktionsnamen haben das Präfix `api_`, damit sie nicht mit den gleichnamig
 }
 ```
 
-- **Feste Parameter:** `{"anrufer": "%%caller_number%%"}`
-- **Vorher sagen:** `Einen Moment, ich schaue nach.`
-- **Bedingung / Wann verwenden:** `Wenn der Anrufer die Maschinennummer vom Typenschild nennt.`
+#### c) api_warten
 
-#### c) Test warten
-
-- **Name der API-Anfrage:** `Test warten`
+- **Wann soll das Tool verwendet werden?** `Nur wenn der Anrufer „Wartetest“ und eine Zahl (5, 15 oder 25) sagt.`
 - **URL:** `https://kumm-support-agent.osc-fr1.scalingo.io/api/verzoegert/{{sekunden}}`
-- **Funktionsdefinition:**
+- **Funktionsaufruf-Definition:**
 
 ```json
 {
@@ -199,20 +185,12 @@ Die Funktionsnamen haben das Präfix `api_`, damit sie nicht mit den gleichnamig
         "type": "integer",
         "enum": [5, 15, 25],
         "description": "Wartezeit in Sekunden: 5, 15 oder 25"
-      },
-      "anliegen_id": {
-        "type": "string",
-        "description": "Die vierstellige Anliegen-Nummer aus der Begrüßung, falls bekannt"
       }
     },
     "required": ["sekunden"]
   }
 }
 ```
-
-- **Feste Parameter:** `{"anrufer": "%%caller_number%%"}`
-- **Vorher sagen:** `Einen Moment bitte.`
-- **Bedingung / Wann verwenden:** `Wenn der Anrufer „Wartetest“ mit einer Zahl sagt.`
 
 Falls `{{sekunden}}` in der URL nicht ersetzt wird (Protokoll zeigt Pfad `/api/verzoegert/%7B%7Bsekunden%7D%7D` o. ä.), stattdessen drei API-Anfragen mit fester URL `/api/verzoegert/5`, `/15`, `/25` anlegen.
 
