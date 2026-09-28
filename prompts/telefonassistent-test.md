@@ -2,7 +2,7 @@
 
 > **Nur für die Testanrufe mit dem Placetel-Testdienst** (`spikes/placetel-test/`, siehe `ANLEITUNG.md` dort).
 > **Nicht** der Prompt für den Betrieb. Der kommt später nach `prompts/telefonassistent.md`.
-> Alles unter „Prompt“ in die **KI-Anweisung** des Test-Telefonassistenten kopieren.
+> In Placetel: Abschnitt „Begrüßungszeile“ → Feld **Begrüßungszeile**, Abschnitt „Hauptanweisung“ → Feld **Hauptanweisung** (jeweils nur den Inhalt des Codeblocks).
 
 Absichtlich eingebaut:
 
@@ -12,15 +12,15 @@ Absichtlich eingebaut:
 - Datenschutzhinweis und Umgang mit Widerspruch so, als wäre es der Betrieb. Der Wortlaut ist ein Entwurf und muss noch mit Kumm Technik GmbH bzw. deren Datenschutzbeauftragtem abgestimmt werden (Map: „Datenschutz am Telefon“).
 - Keine Anliegen-Nummer mehr in Begrüßung und Prompt; der Inbound Webhook ist für diese Tests nicht nötig.
 
-## Begrüßung
+## Begrüßungszeile
 
-In Placetel als **Initiale Begrüßung** des Test-Telefonassistenten eintragen:
+In Placetel ins Feld **Begrüßungszeile** des Test-Telefonassistenten:
 
 ```text
 Guten Tag, Sie sprechen mit dem KI-Telefonassistenten der Kumm Technik GmbH. Dieses Gespräch wird aufgezeichnet und automatisch ausgewertet, damit wir Ihr Anliegen bearbeiten können. Wenn Sie damit nicht einverstanden sind, können Sie jetzt auflegen. Hinweise zum Datenschutz finden Sie auf unserer Website. Worum geht es?
 ```
 
-## Prompt
+## Hauptanweisung
 
 ```text
 # Rolle

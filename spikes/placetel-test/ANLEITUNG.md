@@ -91,7 +91,7 @@ Einen **eigenen Test-Telefonassistenten** nehmen (nicht den späteren echten).
 
 ### 2.1 KI-Anweisung
 
-Inhalt aus [`prompts/telefonassistent-test.md`](../../prompts/telefonassistent-test.md) (Abschnitt „Prompt“) einfügen.
+Inhalt aus [`prompts/telefonassistent-test.md`](../../prompts/telefonassistent-test.md) (Abschnitt „Hauptanweisung“) ins Feld **Hauptanweisung** einfügen, Abschnitt „Begrüßungszeile“ ins Feld **Begrüßungszeile**.
 
 ### 2.2 API-Anfragen (Voice Wizard → Tab **API-Anfragen**)
 
@@ -251,7 +251,7 @@ Schon „Tools entdecken“ erzeugt Einträge im Protokoll (`initialize`, `tools
 | `anliegen_id` | `anliegen_id` | `0000` |
 | `begruessung_hinweis` | `begruessung_hinweis` | (leer) |
 
-Die **Initiale Begrüßung** steht in [`prompts/telefonassistent-test.md`](../../prompts/telefonassistent-test.md) (Abschnitt „Begrüßung“, mit Datenschutzhinweis, ohne Anliegen-Nummer).
+Die Begrüßungszeile steht in [`prompts/telefonassistent-test.md`](../../prompts/telefonassistent-test.md) (siehe 2.1).
 
 ### 2.5 Nachbearbeitung (Voice Agent → Tab **Nachbearbeitung** → Aufgabe hinzufügen → **API**)
 
