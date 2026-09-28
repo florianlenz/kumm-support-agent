@@ -46,27 +46,27 @@ Token erzeugen und merken:
 export TOKEN=$(openssl rand -hex 24); echo $TOKEN
 ```
 
-Mit der Scalingo-CLI (App-Name nach Belieben, hier `kumm-placetel-test`):
+Mit der Scalingo-CLI (App-Name nach Belieben, hier `kumm-support-agent`):
 
 ```bash
-scalingo --region osc-fr1 create kumm-placetel-test
-scalingo --region osc-fr1 --app kumm-placetel-test env-set \
+scalingo --region osc-fr1 create kumm-support-agent
+scalingo --region osc-fr1 --app kumm-support-agent env-set \
   PROJECT_DIR=spikes/placetel-test \
   API_TOKEN=$TOKEN \
   FOTO_VERSUCHE=3
-scalingo --region osc-fr1 --app kumm-placetel-test git-show   # zeigt die Git-URL
-git remote add scalingo git@ssh.osc-fr1.scalingo.com:kumm-placetel-test.git
+scalingo --region osc-fr1 --app kumm-support-agent git-show   # zeigt die Git-URL
+git remote add scalingo git@ssh.osc-fr1.scalingo.com:kumm-support-agent.git
 git push scalingo spike/placetel-test:master
 ```
 
 Alternativ im Dashboard: App anlegen → *Environment* → `PROJECT_DIR`, `API_TOKEN`, `FOTO_VERSUCHE` setzen → per GitHub-Integration den Branch `spike/placetel-test` deployen.
 
-**Wichtig:** nur **1 Container** (Standard). Protokoll und Zähler liegen im Arbeitsspeicher; Neustart oder Deploy leert sie. Alles steht zusätzlich als JSON-Zeile im Log (`scalingo --app kumm-placetel-test logs -f`).
+**Wichtig:** nur **1 Container** (Standard). Protokoll und Zähler liegen im Arbeitsspeicher; Neustart oder Deploy leert sie. Alles steht zusätzlich als JSON-Zeile im Log (`scalingo --app kumm-support-agent logs -f`).
 
 Prüfen:
 
 ```bash
-export BASE=https://kumm-placetel-test.osc-fr1.scalingo.io
+export BASE=https://kumm-support-agent.osc-fr1.scalingo.io
 curl -s $BASE/health                                   # {"status":"ok"}
 curl -s -XPOST $BASE/api/maschine-suchen -H "Authorization: Bearer $TOKEN" -d '{"maschinennummer":"tkkc 9901"}'
 curl -s -XPOST $BASE/api/foto-status -H "X-API-Key: $TOKEN" -d '{}'   # 3x noch_nicht_da, 4. Mal erkannt
@@ -86,7 +86,7 @@ curl -s -XDELETE $BASE/protokoll -H "X-API-Key: $TOKEN"              # vor den e
 
 ## 2. Placetel einrichten
 
-Überall `https://kumm-placetel-test.osc-fr1.scalingo.io` durch die eigene App-URL ersetzen.
+Überall `https://kumm-support-agent.osc-fr1.scalingo.io` durch die eigene App-URL ersetzen.
 Einen **eigenen Test-Telefonassistenten** nehmen (nicht den späteren echten).
 
 ### 2.1 KI-Anweisung
@@ -113,7 +113,7 @@ Die Funktionsnamen haben das Präfix `api_`, damit sie nicht mit den gleichnamig
 #### a) Test foto_status
 
 - **Name der API-Anfrage:** `Test foto_status`
-- **URL:** `https://kumm-placetel-test.osc-fr1.scalingo.io/api/foto-status`
+- **URL:** `https://kumm-support-agent.osc-fr1.scalingo.io/api/foto-status`
 - **Funktionsdefinition:**
 
 ```json
@@ -152,7 +152,7 @@ Die Funktionsnamen haben das Präfix `api_`, damit sie nicht mit den gleichnamig
 #### b) Test maschine_suchen
 
 - **Name der API-Anfrage:** `Test maschine_suchen`
-- **URL:** `https://kumm-placetel-test.osc-fr1.scalingo.io/api/maschine-suchen`
+- **URL:** `https://kumm-support-agent.osc-fr1.scalingo.io/api/maschine-suchen`
 - **Funktionsdefinition:**
 
 ```json
@@ -184,7 +184,7 @@ Die Funktionsnamen haben das Präfix `api_`, damit sie nicht mit den gleichnamig
 #### c) Test warten
 
 - **Name der API-Anfrage:** `Test warten`
-- **URL:** `https://kumm-placetel-test.osc-fr1.scalingo.io/api/verzoegert/{{sekunden}}`
+- **URL:** `https://kumm-support-agent.osc-fr1.scalingo.io/api/verzoegert/{{sekunden}}`
 - **Funktionsdefinition:**
 
 ```json
@@ -219,7 +219,7 @@ Falls `{{sekunden}}` in der URL nicht ersetzt wird (Protokoll zeigt Pfad `/api/v
 ### 2.3 MCP-Server (Sidebar → **Tools** → Create tool → **MCP Server**)
 
 - **Name:** `Kumm Test`
-- **Server-URL:** `https://kumm-placetel-test.osc-fr1.scalingo.io/mcp` (mit `/mcp`!)
+- **Server-URL:** `https://kumm-support-agent.osc-fr1.scalingo.io/mcp` (mit `/mcp`!)
 - **Authentifizierung:** `Bearer-Token`, Token = `$TOKEN`
   (Alternative zum Gegentest: `Eigener Header`, Name `X-API-Key`, Wert = `$TOKEN`)
 - **Sitzungskontext:** wenn die Oberfläche Optionen anbietet, **alles** aktivieren/mitgeben, was angeboten wird, und einen Screenshot der Oberfläche machen (die Doku beschreibt das Feld nicht).
@@ -229,8 +229,10 @@ Schon „Tools entdecken“ erzeugt Einträge im Protokoll (`initialize`, `tools
 
 ### 2.4 Inbound Webhook (Voice Agent → Tab **Erweitert** → Inbound Webhook → Konfigurieren)
 
+**Optional, derzeit nicht eingerichtet.** Die Anliegen-Nummer ist aus Begrüßung und Prompt entfernt; Prüfung 6 bleibt damit offen.
+
 - **Timeout:** `5000` ms · **Bei Fehler oder Timeout:** `Anruf mit Standardwerten fortsetzen`
-- **Methode:** `POST` · **Endpoint:** `https://kumm-placetel-test.osc-fr1.scalingo.io/webhook/inbound`
+- **Methode:** `POST` · **Endpoint:** `https://kumm-support-agent.osc-fr1.scalingo.io/webhook/inbound`
 - **Authentifizierung:** `Bearer Token` = `$TOKEN`
 - **JSON-Body:**
 
@@ -249,14 +251,11 @@ Schon „Tools entdecken“ erzeugt Einträge im Protokoll (`initialize`, `tools
 | `anliegen_id` | `anliegen_id` | `0000` |
 | `begruessung_hinweis` | `begruessung_hinweis` | (leer) |
 
-- **Initiale Begrüßung:**
-  `Hallo, hier ist der KI-Telefonassistent von Kumm, im Testbetrieb. Ihre Anliegen-Nummer lautet {{anliegen_id}}. Worum geht es?`
-
-(`0000` in der Begrüßung heißt: Webhook ist fehlgeschlagen oder die Zuordnung stimmt nicht.)
+Die **Initiale Begrüßung** steht in [`prompts/telefonassistent-test.md`](../../prompts/telefonassistent-test.md) (Abschnitt „Begrüßung“, mit Datenschutzhinweis, ohne Anliegen-Nummer).
 
 ### 2.5 Nachbearbeitung (Voice Agent → Tab **Nachbearbeitung** → Aufgabe hinzufügen → **API**)
 
-- **Methode:** `POST` · **URL:** `https://kumm-placetel-test.osc-fr1.scalingo.io/webhook/nachbearbeitung`
+- **Methode:** `POST` · **URL:** `https://kumm-support-agent.osc-fr1.scalingo.io/webhook/nachbearbeitung`
 - **Authentifizierung:** `Bearer Token` = `$TOKEN`
 - **Eigene Extraktionen:**
 
@@ -306,7 +305,7 @@ Aktiv: API-Anfragen. Sagen:
 
 Erwartet: 4 Aufrufe von `/api/foto-status` im Abstand von einigen Sekunden, danach nennt er `TKKC9901` und „Testbetrieb Müller“.
 
-Variante (optional, Ausdauer): `FOTO_VERSUCHE=10` setzen (`scalingo --app kumm-placetel-test env-set FOTO_VERSUCHE=10`, startet neu), noch einmal anrufen. Gibt er nach ca. 2 min sauber auf?
+Variante (optional, Ausdauer): `FOTO_VERSUCHE=10` setzen (`scalingo --app kumm-support-agent env-set FOTO_VERSUCHE=10`, startet neu), noch einmal anrufen. Gibt er nach ca. 2 min sauber auf?
 
 Dieser Anruf liefert nebenbei Prüfung 3 (fester Parameter `anrufer`), 4 (Transkript), 5 (Nachbearbeitung) und 6 (`anliegen_id`).
 
