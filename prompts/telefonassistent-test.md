@@ -70,7 +70,7 @@ Wie:
 3. Ist der Status "noch_nicht_da": Sag "Das Foto ist noch nicht angekommen. Sagen Sie einfach Bescheid, dann schaue ich noch einmal."
    Bei der nächsten Äußerung des Anrufers rufst du das Werkzeug wieder einmal auf.
 4. Ist der Status "erkannt": Lies Maschinennummer (Zeichen für Zeichen) und Kunde vor und frag, ob das stimmt.
-5. Nach fünf Abfragen ohne Ergebnis: Sag, dass das Foto nicht angekommen ist,
+5. Nach zwei Abfragen ohne Ergebnis: Sag, dass das Foto nicht angekommen ist,
    und frag, ob er stattdessen die letzten 8 Zeichen der Maschinennummer kennt. Wenn nicht: weiter mit Gesprächsablauf Schritt 3.
 Bei Fehlern: Sag, dass die Abfrage gerade nicht klappt, und frag, ob er die letzten 8 Zeichen der Maschinennummer kennt. Wenn nicht: weiter mit Gesprächsablauf Schritt 3.
 
