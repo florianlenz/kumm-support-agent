@@ -118,7 +118,7 @@ Für alle drei gilt:
 
 #### a) api_foto_status
 
-- **Wann soll das Tool verwendet werden?** `Wenn der Anrufer sagt, dass er ein Foto vom Typenschild per WhatsApp schickt oder geschickt hat. Wiederholt aufrufen (etwa alle 5 Sekunden), solange status=noch_nicht_da ist, höchstens etwa 2 Minuten lang.`
+- **Wann soll das Tool verwendet werden?** `Wenn der Anrufer sagt, dass er das Foto vom Typenschild per WhatsApp geschickt hat, oder bittet, noch einmal nachzuschauen. Pro Äußerung des Anrufers höchstens einmal aufrufen.`
 - **URL:** `https://kumm-support-agent.osc-fr1.scalingo.io/api/foto-status`
 - **Funktionsaufruf-Definition:**
 
