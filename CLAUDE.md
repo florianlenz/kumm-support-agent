@@ -7,3 +7,7 @@ Issues are tracked as GitHub issues in `florianlenz/kumm-support-agent`, via the
 ### Domain docs
 
 Single-context: `CONTEXT.md` and `docs/adr/` at the repo root. See `docs/agents/domain.md`.
+
+## Telefonassistent-Prompt
+
+Die Prompt-Datei unter `prompts/` ist die einzige Quelle für das Verhalten des Telefonassistenten; Placetel bekommt ihren Inhalt per Kopie. Jede Verhaltensänderung (Begrüßungszeile, Hauptanweisung) landet zuerst dort, erst dann in Placetel. Betrieb: `prompts/telefonassistent.md`, Tests: `prompts/telefonassistent-test.md`.

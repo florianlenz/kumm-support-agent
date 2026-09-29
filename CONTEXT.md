@@ -1,8 +1,9 @@
 # Telefonassistent-Tooling
 
-Werkzeuge, die ein bei Placetel betriebener KI-Telefonassistent während eines
-laufenden Support-Anrufs bei Kumm aufruft. Der Assistent selbst gehört nicht zu
-diesem Projekt — er ist unser Aufrufer, nicht unser Produkt.
+Der Dienst hinter einem bei Placetel betriebenen KI-Telefonassistenten für den
+Support von Kumm: Er verarbeitet nach dem Anruf, was der Assistent aufgenommen
+hat, und macht daraus ein Anliegen für den Support. Der Assistent selbst gehört
+nicht zu diesem Projekt — er ist unser Zulieferer, nicht unser Produkt.
 
 ## Beteiligte
 
