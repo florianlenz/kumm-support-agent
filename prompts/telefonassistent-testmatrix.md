@@ -6,6 +6,14 @@
 
 So gehst du vor: Ruf für jeden Fall einmal an, sag, was unter „Du sagst“ steht, und hake alles ab, was unter „Erwartet“ passiert. Klappt etwas nicht, notiere die Fall-Nummer und schick das Debug-Protokoll.
 
+## Begrüßung
+
+### F0 Begrüßungszeile
+**Du sagst:** nichts, nur zuhören.
+**Erwartet:**
+- [ ] „Guten Tag, hier ist der KI-Assistent der Kumm Technik GmbH. Das Gespräch wird aufgezeichnet und ausgewertet. Wenn Sie das nicht möchten, legen Sie bitte auf. Worum geht es?“
+- [ ] Kurz genug, dass man nicht ungeduldig wird.
+
 ## Grundablauf
 
 ### F1 Technisches Problem mit Maschinennummer
