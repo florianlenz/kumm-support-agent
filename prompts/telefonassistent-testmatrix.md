@@ -101,6 +101,17 @@ So gehst du vor: Ruf für jeden Fall einmal an, sag, was unter „Du sagst“ st
 - [ ] Du sagst „Ja“, dann wieder nichts: Nach etwa 20 s fragt er erneut.
 - [ ] Du schweigst nach der Nachfrage: Nach etwa 15 s „Auf Wiederhören“, und er legt auf.
 
+## Nachbearbeitung (Make)
+
+### N1 Was in Make ankommt
+Nach F1, F2 und F3 in Make den eingegangenen Datensatz öffnen.
+**Erwartet:**
+- [ ] F1: `kategorie` = Technisches Problem, `maschinennummer` = `XXX36.1024`, `name`, `betrieb`, `ort`, `problem` gefüllt, `rueckrufnummer` leer.
+- [ ] F2: `kategorie` = Ersatzteil, `maschinennummer` leer.
+- [ ] F3: `maschinennummer` = `TKKC9902` (die korrigierte Fassung).
+- [ ] `caller_number`, `summary`, `transcript`, `conversation_link` gefüllt, nirgends steht noch `%%…%%`.
+- [ ] Der Datensatz kommt überhaupt an (kommt nichts, war der Body vermutlich kein gültiges JSON, z. B. wegen Anführungszeichen im Transkript).
+
 ## Nicht im Browser-Test prüfbar
 
 ### F13 Rufnummer unbekannt

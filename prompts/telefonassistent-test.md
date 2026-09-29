@@ -63,3 +63,43 @@ Du sammelst Angaben für den Support. Du prüfst sie nicht: Übernimm jede Angab
 - Sag auf Nachfrage jederzeit ehrlich, dass du eine KI bist.
 - Kündige nichts an, was du nicht selbst im Gespräch tun kannst (z. B. nachschauen, prüfen, weiterleiten).
 ```
+
+## Nachbearbeitung (Make)
+
+In Placetel: Tab **Nachbearbeitung** → Aufgabe hinzufügen → **API**.
+
+- **Methode:** `POST`
+- **URL:** die Webhook-Adresse aus Make
+- **Authentifizierung:** keine (die Make-Adresse ist selbst geheim)
+- **Eigene Extraktionen** (Variable → Extraktionsanweisung):
+
+| Variable | Extraktionsanweisung |
+|---|---|
+| `kategorie` | `Genau eines von: Technisches Problem, Ersatzteil, Sonstiges.` |
+| `maschinennummer` | `Die Maschinennummer (auch FIN oder Fahrgestellnummer genannt) in der zuletzt bestätigten Fassung, Buchstaben groß, Punkt als ".", ohne Leerzeichen. Falls keine genannt, leer lassen.` |
+| `name` | `Name des Anrufers. Falls nicht genannt, leer lassen.` |
+| `betrieb` | `Name des Betriebs bzw. Hofs. Falls nicht genannt, leer lassen.` |
+| `ort` | `Ort des Betriebs. Falls nicht genannt, leer lassen.` |
+| `problem` | `Das Problem bzw. das benötigte Ersatzteil in ein bis zwei Sätzen, in den Worten des Anrufers.` |
+| `rueckrufnummer` | `Eine im Gespräch genannte Rückrufnummer, nur Ziffern und ggf. führendes +. Falls keine genannt, leer lassen.` |
+
+- **Request Body:**
+
+```json
+{
+  "conversationId": "%%conversationId%%",
+  "conversation_link": "%%conversation_link%%",
+  "recording_link": "%%recording_link%%",
+  "caller_number": "%%caller_number%%",
+  "subject": "%%subject%%",
+  "summary": "%%summary%%",
+  "transcript": "%%transcript%%",
+  "kategorie": "%%kategorie%%",
+  "maschinennummer": "%%maschinennummer%%",
+  "name": "%%name%%",
+  "betrieb": "%%betrieb%%",
+  "ort": "%%ort%%",
+  "problem": "%%problem%%",
+  "rueckrufnummer": "%%rueckrufnummer%%"
+}
+```
