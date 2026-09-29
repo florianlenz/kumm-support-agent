@@ -66,11 +66,9 @@ Du sammelst Angaben für den Support. Du prüfst sie nicht: Übernimm jede Angab
 
 ## Nachbearbeitung (Make)
 
-In Placetel: Tab **Nachbearbeitung** → Aufgabe hinzufügen → **API**.
+In Placetel: Tab **Nachbearbeitung** → Aufgabe hinzufügen → **API** (Doku: <https://aipro.placetel.de/docs/de/post-processing.md>).
 
-- **Methode:** `POST`
-- **URL:** die Webhook-Adresse aus Make
-- **Authentifizierung:** keine (die Make-Adresse ist selbst geheim)
+- **Name:** `Anliegen an Make`
 - **Eigene Extraktionen** (Variable → Extraktionsanweisung):
 
 | Variable | Extraktionsanweisung |
@@ -83,7 +81,12 @@ In Placetel: Tab **Nachbearbeitung** → Aufgabe hinzufügen → **API**.
 | `problem` | `Das Problem bzw. das benötigte Ersatzteil in ein bis zwei Sätzen, in den Worten des Anrufers.` |
 | `rueckrufnummer` | `Eine im Gespräch genannte Rückrufnummer, nur Ziffern und ggf. führendes +. Falls keine genannt, leer lassen.` |
 
-- **Request Body:**
+- **Bedingung:** leer (immer senden)
+- **HTTP-Methode:** `POST`
+- **URL:** die Webhook-Adresse aus Make
+- **Headers:** `Content-Type: application/json` (vorausgefüllt, so lassen)
+- **Authentifizierung:** keine (die Make-Adresse ist selbst geheim)
+- **Request Body:** Schreibweise der eigenen Extraktionen laut Doku `%%name%%`; der Hinweis im Formular nennt dagegen `{{post_call.name}}`. Maßgeblich ist, was die Auswahlliste nach Eingabe von `%%` im Body einfügt.
 
 ```json
 {
@@ -103,3 +106,5 @@ In Placetel: Tab **Nachbearbeitung** → Aufgabe hinzufügen → **API**.
   "rueckrufnummer": "%%rueckrufnummer%%"
 }
 ```
+
+Mit **Test senden** schickt Placetel Beispieldaten; damit lernt Make die Struktur ohne echten Anruf.
