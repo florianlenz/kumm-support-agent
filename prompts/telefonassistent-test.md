@@ -3,6 +3,7 @@
 > **Nur für die Testanrufe mit dem Placetel-Testdienst** (`spikes/placetel-test/`, siehe `ANLEITUNG.md` dort).
 > **Nicht** der Prompt für den Betrieb. Der kommt später nach `prompts/telefonassistent.md`.
 > In Placetel: Abschnitt „Begrüßungszeile“ → Feld **Begrüßungszeile**, Abschnitt „Hauptanweisung“ → Feld **Hauptanweisung** (jeweils nur den Inhalt des Codeblocks).
+> Nach jeder Änderung: `telefonassistent-testmatrix.md` durchgehen. Ändert sich hier etwas, wird die Matrix im selben Commit angepasst.
 
 Absichtlich eingebaut:
 
