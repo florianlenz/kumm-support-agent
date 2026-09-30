@@ -1,6 +1,6 @@
 # TEST-Prompt für den Telefonassistenten (Placetel-Tests #2 / #3)
 
-> **Nur für die Testanrufe mit dem Placetel-Testdienst** (Tests abgeschlossen; Dienst und `ANLEITUNG.md` liegen archiviert auf dem Branch `spike/placetel-test` unter `spikes/placetel-test/`).
+> **Nur für die Testanrufe mit dem Placetel-Testdienst** (Tests abgeschlossen, der Testdienst ist entfernt).
 > **Nicht** der Prompt für den Betrieb. Der kommt später nach `prompts/telefonassistent.md`.
 > In Placetel: Abschnitt „Begrüßungszeile“ → Feld **Begrüßungszeile**, Abschnitt „Hauptanweisung“ → Feld **Hauptanweisung** (jeweils nur den Inhalt des Codeblocks).
 > Nach jeder Änderung: `telefonassistent-testmatrix.md` durchgehen. Ändert sich hier etwas, wird die Matrix im selben Commit angepasst.
