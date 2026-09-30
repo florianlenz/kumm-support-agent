@@ -3,7 +3,6 @@
 > Einzige Quelle für das Verhalten des Telefonassistenten; Placetel bekommt den Inhalt per Kopie.
 > In Placetel: Abschnitt „Begrüßungszeile“ → Feld **Begrüßungszeile**, Abschnitt „Hauptanweisung“ → Feld **Hauptanweisung** (jeweils nur den Inhalt des Codeblocks).
 > Nach jeder Änderung: `telefonassistent-testmatrix.md` durchgehen. Ändert sich hier etwas, wird die Matrix im selben Commit angepasst.
-> Übernommen aus `telefonassistent-test.md` nach Abschluss der Placetel-Tests (#2 / #3).
 
 Offen:
 

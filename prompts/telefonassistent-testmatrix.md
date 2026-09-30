@@ -1,7 +1,7 @@
 # Testmatrix Telefonassistent
 
 > Nach jeder Änderung an Begrüßungszeile, Hauptanweisung oder Anruf-Einstellungen in Placetel durchgehen.
-> Gehört zu `prompts/telefonassistent.md` (Betrieb) und `prompts/telefonassistent-test.md` und wird bei jeder Änderung dort im selben Commit angepasst.
+> Gehört zu `prompts/telefonassistent.md` und wird bei jeder Änderung dort im selben Commit angepasst.
 > Passt zu: Hauptanweisung ohne Werkzeuge (ADR 0001); Inaktivitäts-Timeout 20, Timeout nach Warnung 15, maximale Anrufdauer 600.
 
 So gehst du vor: Ruf für jeden Fall einmal an, sag, was unter „Du sagst“ steht, und hake alles ab, was unter „Erwartet“ passiert. Klappt etwas nicht, notiere die Fall-Nummer und schick das Debug-Protokoll.

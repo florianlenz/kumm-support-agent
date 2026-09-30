@@ -17,7 +17,7 @@ Der KI-Sprachassistent, der bei Placetel konfiguriert ist und den Anruf führt.
 _Avoid_: Agent, Bot, Voicebot, Supportagent
 
 **Mitarbeiter**:
-Ein Mensch im Support von Kumm, an den der Telefonassistent übergeben kann.
+Ein Mensch im Support von Kumm, der das Anliegen nach dem Anruf bearbeitet.
 _Avoid_: Agent, Servicemitarbeiter
 
 **Anrufer**:
