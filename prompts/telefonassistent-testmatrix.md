@@ -23,7 +23,7 @@ So gehst du vor: Ruf für jeden Fall einmal an, sag, was unter „Du sagst“ st
 - [ ] Er fragt ausdrücklich nach den **letzten 8 Zeichen** der Maschinennummer, nicht nach der ganzen Nummer.
 - [ ] Er liest die Maschinennummer **nicht** vor.
 - [ ] Er fragt nach Name, Betrieb und Ort.
-- [ ] Er lässt sich das Problem kurz beschreiben (oder übernimmt das „Öl verlieren“, ohne doppelt zu fragen).
+- [ ] Er fragt **nicht** nach einer Beschreibung des Problems.
 - [ ] Er fragt **nicht** nach einer Rückrufnummer und nennt deine Rufnummer nicht.
 - [ ] Zum Schluss: „Unser Support meldet sich bei Ihnen.“ und Verabschiedung.
 - [ ] Durchgehend knapp: ein kurzer Satz plus nächste Frage, keine Wiederholung deiner Angaben, keine Zusammenfassung am Ende.
@@ -33,7 +33,7 @@ So gehst du vor: Ruf für jeden Fall einmal an, sag, was unter „Du sagst“ st
 **Du sagst:** „Ich brauche ein Ersatzteil.“ Auf die Frage nach der Maschinennummer: „Hab ich gerade nicht da.“
 **Erwartet:**
 - [ ] Er macht direkt weiter, ohne zu drängen oder nach einem Foto zu fragen.
-- [ ] Name, Betrieb und Ort, dann welches Teil bzw. wofür.
+- [ ] Name, Betrieb und Ort, aber **nicht**, welches Teil bzw. wofür.
 - [ ] Verabschiedung mit „Unser Support meldet sich bei Ihnen.“ (ohne Firmennamen)
 
 ### F3 Buchstabiert und korrigiert
@@ -116,7 +116,7 @@ So gehst du vor: Ruf für jeden Fall einmal an, sag, was unter „Du sagst“ st
 Nach F1, F2 und F3 in Make den eingegangenen Datensatz öffnen.
 **Erwartet:**
 - [ ] F1: `kategorie` = Technisches Problem, `maschinennummer` = `XXX36.1024`, `name`, `betrieb`, `ort`, `problem` gefüllt, `rueckrufnummer` leer.
-- [ ] F2: `kategorie` = Ersatzteil, `maschinennummer` leer.
+- [ ] F2: `kategorie` = Ersatzteil, `maschinennummer` leer, `problem` leer oder nur „Ersatzteil“.
 - [ ] F3: `maschinennummer` = `TKKC9902` (die korrigierte Fassung).
 - [ ] `caller_number`, `summary`, `transcript`, `conversation_link` gefüllt, nirgends steht noch `%%…%%`.
 - [ ] Der Datensatz kommt überhaupt an (kommt nichts, war der Body vermutlich kein gültiges JSON, z. B. wegen Anführungszeichen im Transkript).
