@@ -24,7 +24,7 @@ So gehst du vor: Ruf für jeden Fall einmal an, sag, was unter „Du sagst“ st
 - [ ] Er liest die Maschinennummer **nicht** vor.
 - [ ] Er fragt nach Name, Betrieb und Ort.
 - [ ] Er fragt **nicht** nach einer Beschreibung des Problems.
-- [ ] Er spricht die Rückrufnummer gar nicht an (auch nicht „Ist Ihre Rückrufnummer bekannt?“) und nennt deine Rufnummer nicht.
+- [ ] Er fragt „Sollen wir Sie unter dieser Nummer zurückrufen?“, ohne die Nummer vorzulesen (nicht etwa „Ist Ihre Rückrufnummer bekannt?“). Du sagst „Ja“.
 - [ ] Zum Schluss: „Unser Support meldet sich bei Ihnen.“ und Verabschiedung.
 - [ ] Durchgehend knapp: ein kurzer Satz plus nächste Frage, keine Wiederholung deiner Angaben, keine Zusammenfassung am Ende.
 - [ ] Nach der Begrüßung fällt der Firmenname nicht mehr; der Support kommt nur in der Begrüßung und bei der Verabschiedung vor.
@@ -48,6 +48,12 @@ So gehst du vor: Ruf für jeden Fall einmal an, sag, was unter „Du sagst“ st
 **Erwartet:**
 - [ ] Er fragt nichts doppelt, was du schon gesagt hast.
 - [ ] Er liest die Maschinennummer nicht vor.
+
+### F15 Andere Rückrufnummer
+**Du sagst:** Wie F1, aber auf „Sollen wir Sie unter dieser Nummer zurückrufen?“: „Nein, besser unter null eins sieben eins, eins zwei drei vier fünf sechs sieben.“
+**Erwartet:**
+- [ ] Er übernimmt die Nummer, ohne sie vorzulesen, und verabschiedet sich.
+- [ ] In Make: `rueckrufnummer` = `01711234567`.
 
 ### F14 Nummer nicht verstanden
 **Du sagst:** Die Maschinennummer schnell und genuschelt, z. B. „tekaka-ce-neunneunnulleins“.
@@ -113,11 +119,12 @@ So gehst du vor: Ruf für jeden Fall einmal an, sag, was unter „Du sagst“ st
 ## Nachbearbeitung (Make)
 
 ### N1 Was in Make ankommt
-Nach F1, F2 und F3 in Make den eingegangenen Datensatz öffnen.
+Nach F1, F2, F3 und F15 in Make den eingegangenen Datensatz öffnen.
 **Erwartet:**
 - [ ] F1: `kategorie` = Technisches Problem, `maschinennummer` = `XXX36.1024`, `name`, `betrieb`, `ort`, `problem` gefüllt, `rueckrufnummer` leer.
 - [ ] F2: `kategorie` = Ersatzteil, `maschinennummer` leer, `problem` leer oder nur „Ersatzteil“.
 - [ ] F3: `maschinennummer` = `TKKC9902` (die korrigierte Fassung).
+- [ ] F15: `rueckrufnummer` = `01711234567`.
 - [ ] `caller_number`, `summary`, `transcript`, `conversation_link` gefüllt, nirgends steht noch `%%…%%`.
 - [ ] Der Datensatz kommt überhaupt an (kommt nichts, war der Body vermutlich kein gültiges JSON, z. B. wegen Anführungszeichen im Transkript).
 
