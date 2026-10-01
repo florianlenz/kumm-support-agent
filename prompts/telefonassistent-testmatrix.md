@@ -11,7 +11,7 @@ So gehst du vor: Ruf für jeden Fall einmal an, sag, was unter „Du sagst“ st
 ### F0 Begrüßungszeile
 **Du sagst:** nichts, nur zuhören.
 **Erwartet:**
-- [ ] „Guten Tag, hier ist der KI-Assistent der Kumm Technik GmbH. Das Gespräch wird aufgezeichnet und ausgewertet. Wenn Sie das nicht möchten, legen Sie bitte auf. Worum geht es?“
+- [ ] „Guten Tag, hier ist der KI-Assistent der Kumm Technik GmbH. Unser Support ist gerade nicht erreichbar, ich nehme Ihr Anliegen auf. Das Gespräch wird aufgezeichnet und ausgewertet. Wenn Sie das nicht möchten, legen Sie bitte auf. Worum geht es?“
 - [ ] Kurz genug, dass man nicht ungeduldig wird.
 
 ## Grundablauf
@@ -19,7 +19,7 @@ So gehst du vor: Ruf für jeden Fall einmal an, sag, was unter „Du sagst“ st
 ### F1 Technisches Problem mit Maschinennummer
 **Du sagst:** „Mein Güllefass verliert Öl.“ Auf die Frage nach der Maschinennummer: „X X X sechsunddreißig Punkt eins null zwei vier“.
 **Erwartet:**
-- [ ] Nach dem Anliegen sagt er einmal sinngemäß: „Unser Support ist gerade nicht erreichbar. Ich nehme Ihr Anliegen auf, unser Support meldet sich dann bei Ihnen.“
+- [ ] Nach dem Anliegen wiederholt er **nicht**, dass der Support nicht erreichbar ist.
 - [ ] Er fragt ausdrücklich nach den **letzten 8 Zeichen** der Maschinennummer, nicht nach der ganzen Nummer.
 - [ ] Er liest die Maschinennummer **nicht** vor.
 - [ ] Er fragt nach Name, Betrieb und Ort.
@@ -27,7 +27,7 @@ So gehst du vor: Ruf für jeden Fall einmal an, sag, was unter „Du sagst“ st
 - [ ] Er fragt **nicht** nach einer Rückrufnummer und nennt deine Rufnummer nicht.
 - [ ] Zum Schluss: „Unser Support meldet sich bei Ihnen.“ und Verabschiedung.
 - [ ] Durchgehend knapp: ein kurzer Satz plus nächste Frage, keine Wiederholung deiner Angaben, keine Zusammenfassung am Ende.
-- [ ] Nach der Begrüßung fällt der Firmenname nicht mehr; der Support kommt nur nach dem Anliegen und bei der Verabschiedung vor.
+- [ ] Nach der Begrüßung fällt der Firmenname nicht mehr; der Support kommt nur in der Begrüßung und bei der Verabschiedung vor.
 
 ### F2 Ersatzteil ohne Maschinennummer
 **Du sagst:** „Ich brauche ein Ersatzteil.“ Auf die Frage nach der Maschinennummer: „Hab ich gerade nicht da.“
