@@ -21,7 +21,7 @@ So gehst du vor: Ruf für jeden Fall einmal an, sag, was unter „Du sagst“ st
 **Erwartet:**
 - [ ] Nach dem Anliegen wiederholt er **nicht**, dass der Support nicht erreichbar ist.
 - [ ] Nach „Mein Güllefass verliert Öl“ fragt er **nicht**, ob es ein technisches Problem oder ein Ersatzteil ist, sondern macht direkt weiter.
-- [ ] Er fragt ausdrücklich nach den **letzten 8 Zeichen** der Maschinennummer, nicht nach der ganzen Nummer.
+- [ ] Er fragt ausdrücklich nach den **letzten 8 Zeichen** der **Fahrgestellnummer** vom Typenschild (nicht „Maschinennummer“, nicht die ganze Nummer).
 - [ ] Er liest die Maschinennummer **nicht** vor.
 - [ ] Er fragt nach Name, Betrieb und Ort.
 - [ ] Er fragt **nicht** nach einer Beschreibung des Problems.
