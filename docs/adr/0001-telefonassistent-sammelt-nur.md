@@ -12,7 +12,7 @@ Jedes Werkzeug im Gespräch wäre eine Stelle, an der das Gespräch kippen kann.
 
 ## Im Gespräch
 
-- **Maschinennummer:** Nur bei Technischem Problem oder Ersatzteil. Er fragt nach den letzten 8 Zeichen, **freiwillig** und **ungeprüft**. Er übernimmt die Angabe so, wie der Anrufer sie nennt, und liest sie einmal zur Bestätigung vor.
+- **Maschinennummer:** Nur bei Technischem Problem oder Ersatzteil. Er fragt nach den letzten 8 Zeichen, **freiwillig** und **ungeprüft**. Er übernimmt die Angabe so, wie der Anrufer sie nennt, und liest sie nur vor, wenn er sie nicht sicher verstanden hat.
 - **Name, Betrieb und Ort:** Er fragt **immer** danach. Früher war das nur vorgesehen, wenn der Kunde unbekannt ist.
 - **Kein Foto vom Typenschild in Version 1.** Die WhatsApp-Nummer von Kumm hängt an Zendesk, und alles, was in Zendesk landet, ist ausgeschlossen.
 

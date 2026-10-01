@@ -20,7 +20,7 @@ So gehst du vor: Ruf für jeden Fall einmal an, sag, was unter „Du sagst“ st
 **Du sagst:** „Mein Güllefass verliert Öl.“ Auf die Frage nach der Maschinennummer: „X X X sechsunddreißig Punkt eins null zwei vier“.
 **Erwartet:**
 - [ ] Nach dem Anliegen sagt er einmal sinngemäß: „Unser Support ist gerade nicht erreichbar. Ich nehme Ihr Anliegen auf, unser Support meldet sich dann bei Ihnen.“
-- [ ] Er fragt, ob du die Maschinennummer zur Hand hast, und sagt, dass sie freiwillig ist bzw. die letzten 8 Zeichen reichen.
+- [ ] Er fragt ausdrücklich nach den **letzten 8 Zeichen** der Maschinennummer, nicht nach der ganzen Nummer.
 - [ ] Er liest die Maschinennummer **nicht** vor.
 - [ ] Er fragt nach Name, Betrieb und Ort.
 - [ ] Er lässt sich das Problem kurz beschreiben (oder übernimmt das „Öl verlieren“, ohne doppelt zu fragen).
