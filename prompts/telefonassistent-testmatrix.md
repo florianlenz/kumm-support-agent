@@ -24,7 +24,7 @@ So gehst du vor: Ruf für jeden Fall einmal an, sag, was unter „Du sagst“ st
 - [ ] Er liest die Maschinennummer **nicht** vor.
 - [ ] Er fragt nach Name, Betrieb und Ort.
 - [ ] Er fragt **nicht** nach einer Beschreibung des Problems.
-- [ ] Er fragt **nicht** nach einer Rückrufnummer und nennt deine Rufnummer nicht.
+- [ ] Er spricht die Rückrufnummer gar nicht an (auch nicht „Ist Ihre Rückrufnummer bekannt?“) und nennt deine Rufnummer nicht.
 - [ ] Zum Schluss: „Unser Support meldet sich bei Ihnen.“ und Verabschiedung.
 - [ ] Durchgehend knapp: ein kurzer Satz plus nächste Frage, keine Wiederholung deiner Angaben, keine Zusammenfassung am Ende.
 - [ ] Nach der Begrüßung fällt der Firmenname nicht mehr; der Support kommt nur in der Begrüßung und bei der Verabschiedung vor.
@@ -126,7 +126,7 @@ Nach F1, F2 und F3 in Make den eingegangenen Datensatz öffnen.
 ### F13 Rufnummer unbekannt
 Im Browser-Test ist die Rufnummer `browser_…`, also nicht leer. Er fragt dann **nicht** nach einer Rückrufnummer. Richtig prüfen lässt sich das nur mit einem Anruf mit unterdrückter Nummer.
 **Erwartet (bei unterdrückter Nummer):**
-- [ ] Er fragt nach einer Rückrufnummer und liest sie nicht vor (außer er hat sie nicht sicher verstanden).
+- [ ] Er fragt sinngemäß „Unter welcher Nummer können wir Sie zurückrufen?“ und liest sie nicht vor (außer er hat sie nicht sicher verstanden).
 
 ## Protokoll
 
