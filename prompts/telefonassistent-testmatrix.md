@@ -11,7 +11,7 @@ So gehst du vor: Ruf für jeden Fall einmal an, sag, was unter „Du sagst“ st
 ### F0 Begrüßungszeile
 **Du sagst:** nichts, nur zuhören.
 **Erwartet:**
-- [ ] „Guten Tag, hier ist der KI-Assistent der Kumm Technik GmbH. Unser Support ist gerade nicht erreichbar, ich nehme Ihr Anliegen auf. Das Gespräch wird aufgezeichnet und ausgewertet. Wenn Sie das nicht möchten, legen Sie bitte auf. Worum geht es?“
+- [ ] „Guten Tag, hier ist der KI-Assistent der Kumm Technik GmbH. Unser Support ist gerade nicht erreichbar, ich nehme Ihr Anliegen auf. Das Gespräch wird aufgezeichnet. Wenn Sie das nicht möchten, legen Sie bitte auf. Worum geht es?“
 - [ ] Kurz genug, dass man nicht ungeduldig wird.
 
 ## Grundablauf
