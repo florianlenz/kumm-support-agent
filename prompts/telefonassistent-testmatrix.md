@@ -19,32 +19,41 @@ So gehst du vor: Ruf für jeden Fall einmal an, sag, was unter „Du sagst“ st
 ### F1 Technisches Problem mit Maschinennummer
 **Du sagst:** „Mein Güllefass verliert Öl.“ Auf die Frage nach der Maschinennummer: „X X X sechsunddreißig Punkt eins null zwei vier“.
 **Erwartet:**
+- [ ] Nach dem Anliegen sagt er einmal sinngemäß: „Unser Support ist gerade nicht erreichbar. Ich nehme Ihr Anliegen auf, unser Support meldet sich dann bei Ihnen.“
 - [ ] Er fragt, ob du die Maschinennummer zur Hand hast, und sagt, dass sie freiwillig ist bzw. die letzten 8 Zeichen reichen.
-- [ ] Er liest sie einmal Zeichen für Zeichen vor, mit Punkt: `XXX36.1024`.
+- [ ] Er liest die Maschinennummer **nicht** vor.
 - [ ] Er fragt nach Name, Betrieb und Ort.
 - [ ] Er lässt sich das Problem kurz beschreiben (oder übernimmt das „Öl verlieren“, ohne doppelt zu fragen).
-- [ ] Er fragt **nicht** nach einer Rückrufnummer.
-- [ ] Er sagt, dass sich der Support meldet, und verabschiedet sich.
+- [ ] Er fragt **nicht** nach einer Rückrufnummer und nennt deine Rufnummer nicht.
+- [ ] Zum Schluss: „Unser Support meldet sich bei Ihnen.“ und Verabschiedung.
+- [ ] Durchgehend knapp: ein kurzer Satz plus nächste Frage, keine Wiederholung deiner Angaben, keine Zusammenfassung am Ende.
+- [ ] Nach der Begrüßung fällt der Firmenname nicht mehr; der Support kommt nur nach dem Anliegen und bei der Verabschiedung vor.
 
 ### F2 Ersatzteil ohne Maschinennummer
 **Du sagst:** „Ich brauche ein Ersatzteil.“ Auf die Frage nach der Maschinennummer: „Hab ich gerade nicht da.“
 **Erwartet:**
 - [ ] Er macht direkt weiter, ohne zu drängen oder nach einem Foto zu fragen.
 - [ ] Name, Betrieb und Ort, dann welches Teil bzw. wofür.
-- [ ] Verabschiedung mit „Der Support meldet sich“.
+- [ ] Verabschiedung mit „Unser Support meldet sich bei Ihnen.“ (ohne Firmennamen)
 
 ### F3 Buchstabiert und korrigiert
-**Du sagst:** Technisches Problem, Maschinennummer „T wie Theodor, K, K, C wie Cäsar, neun, neun, null, eins“. Beim Vorlesen: „Nein, am Ende null zwei.“
+**Du sagst:** Technisches Problem, Maschinennummer „T wie Theodor, K, K, C wie Cäsar, neun, neun, null, eins – nein, am Ende null zwei.“
 **Erwartet:**
-- [ ] Erstes Vorlesen: `TKKC9901`.
-- [ ] Nach der Korrektur liest er die korrigierte Nummer `TKKC9902` vor.
+- [ ] Er übernimmt die Korrektur ohne Kommentar und liest die Nummer nicht vor.
 - [ ] Er prüft nichts und sagt nicht, dass die Nummer (un)gültig ist.
+- [ ] In Make kommt `TKKC9902` an (siehe N1).
 
 ### F4 Alles in einem Satz
 **Du sagst:** „Hier ist Max Muster vom Hof Muster in Oldenburg, bei meinem Fass geht die Pumpe nicht, die Nummer ist TKKC9901.“
 **Erwartet:**
 - [ ] Er fragt nichts doppelt, was du schon gesagt hast.
-- [ ] Er liest die Maschinennummer einmal vor.
+- [ ] Er liest die Maschinennummer nicht vor.
+
+### F14 Nummer nicht verstanden
+**Du sagst:** Die Maschinennummer schnell und genuschelt, z. B. „tekaka-ce-neunneunnulleins“.
+**Erwartet:**
+- [ ] Er liest die Nummer einmal Zeichen für Zeichen vor und fragt, ob sie stimmt.
+- [ ] Bestätigst du, liest er sie nicht noch einmal vor.
 
 ## Abgrenzung
 
@@ -56,20 +65,20 @@ So gehst du vor: Ruf für jeden Fall einmal an, sag, was unter „Du sagst“ st
 ### F6 Kein Supportanliegen
 **Du sagst:** „Was kostet ein neues Fass mit 18 Kubik?“
 **Erwartet:**
-- [ ] Er sagt, dass er nur Supportanliegen aufnimmt, und verweist auf die Geschäftszeiten.
+- [ ] Er sagt, dass er nur Supportanliegen aufnimmt, und verweist auf die Geschäftszeiten, ohne den Firmennamen zu nennen.
 - [ ] Er nennt keine Preise, keine Produktinfos und fragt nicht nach Name oder Maschinennummer.
 
 ### F7 Technische Beratung
 **Du sagst:** „Wie stelle ich den Druck am Kompressor ein?“
 **Erwartet:**
 - [ ] Keine Anleitung, keine technischen Tipps.
-- [ ] Er nimmt es als technisches Problem auf, damit sich der Support meldet.
+- [ ] Er sagt kurz, dass er das nicht kann, und nimmt es als technisches Problem auf.
 
 ### F8 Nachschauen verlangen
 **Du sagst:** Nach der Maschinennummer: „Können Sie mal nachschauen, ob das meine Maschine ist?“
 **Erwartet:**
 - [ ] Er sagt **nicht** „Ich schaue nach“ oder „Einen Moment bitte“.
-- [ ] Er sagt, dass der Support das klärt, und macht weiter.
+- [ ] Er sagt kurz, dass er das nicht kann, und macht weiter.
 
 ## Datenschutz und Ehrlichkeit
 
@@ -82,7 +91,7 @@ So gehst du vor: Ruf für jeden Fall einmal an, sag, was unter „Du sagst“ st
 ### F10 Frage nach den Daten
 **Du sagst:** Mitten im Gespräch: „Was passiert denn mit meinen Daten?“
 **Erwartet:**
-- [ ] Aufgezeichnet und schriftlich festgehalten, damit ein Mitarbeiter das Anliegen bearbeitet; Datenschutzerklärung auf der Website.
+- [ ] Aufgezeichnet und schriftlich festgehalten, damit unser Support das Anliegen bearbeitet; Datenschutzerklärung auf der Website.
 - [ ] Keine erfundenen Fristen, Löschzeiten oder Rechtsauskünfte.
 - [ ] Danach macht er mit dem Gespräch weiter.
 
@@ -117,7 +126,7 @@ Nach F1, F2 und F3 in Make den eingegangenen Datensatz öffnen.
 ### F13 Rufnummer unbekannt
 Im Browser-Test ist die Rufnummer `browser_…`, also nicht leer. Er fragt dann **nicht** nach einer Rückrufnummer. Richtig prüfen lässt sich das nur mit einem Anruf mit unterdrückter Nummer.
 **Erwartet (bei unterdrückter Nummer):**
-- [ ] Er fragt nach einer Rückrufnummer.
+- [ ] Er fragt nach einer Rückrufnummer und liest sie nicht vor (außer er hat sie nicht sicher verstanden).
 
 ## Protokoll
 
