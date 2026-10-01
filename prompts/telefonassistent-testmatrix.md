@@ -20,6 +20,7 @@ So gehst du vor: Ruf für jeden Fall einmal an, sag, was unter „Du sagst“ st
 **Du sagst:** „Mein Güllefass verliert Öl.“ Auf die Frage nach der Maschinennummer: „X X X sechsunddreißig Punkt eins null zwei vier“.
 **Erwartet:**
 - [ ] Nach dem Anliegen wiederholt er **nicht**, dass der Support nicht erreichbar ist.
+- [ ] Nach „Mein Güllefass verliert Öl“ fragt er **nicht**, ob es ein technisches Problem oder ein Ersatzteil ist, sondern macht direkt weiter.
 - [ ] Er fragt ausdrücklich nach den **letzten 8 Zeichen** der Maschinennummer, nicht nach der ganzen Nummer.
 - [ ] Er liest die Maschinennummer **nicht** vor.
 - [ ] Er fragt nach Name, Betrieb und Ort.
@@ -66,7 +67,8 @@ So gehst du vor: Ruf für jeden Fall einmal an, sag, was unter „Du sagst“ st
 ### F5 Unklares Anliegen
 **Du sagst:** „Ich hab da mal eine Frage.“
 **Erwartet:**
-- [ ] „Geht es um ein technisches Problem oder ein Ersatzteil?“ (sinngemäß)
+- [ ] Er fragt nur kurz „Worum geht es denn?“ (sinngemäß).
+- [ ] Er fragt **nicht** „Geht es um ein technisches Problem oder ein Ersatzteil?“.
 
 ### F6 Kein Supportanliegen
 **Du sagst:** „Was kostet ein neues Fass mit 18 Kubik?“
